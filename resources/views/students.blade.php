@@ -23,6 +23,42 @@
 <body>
 
 <h2>Students Table</h2>
+<form action="{{ route('students.index') }}" method="GET">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" value="{{ request('name') }}">
+
+    <label for="phone">Phone:</label>
+    <input type="text" id="phone" name="phone" value="{{ request('phone') }}">
+
+    <label for="class">Class:</label>
+    <select id="class" name="class">
+        <option value="">Select Class</option>
+        @for($i = 1; $i <= 10; $i++)
+            <option value="{{ $i }}" {{ request('class') == $i ? 'selected' : '' }}>{{ $i }}</option>
+        @endfor
+    </select>
+
+    <label for="fee">Fee:</label>
+    <input type="text" id="fee" name="fee" value="{{ request('fee') }}">
+
+    <label for="concession">Concession:</label>
+    <select id="concession" name="concession">
+        <option value="">Select Concession</option>
+        <option value="Yes" {{ request('concession') == 'Yes' ? 'selected' : '' }}>Yes</option>
+        <option value="No" {{ request('concession') == 'No' ? 'selected' : '' }}>No</option>
+    </select>
+
+    <label for="status">Status:</label>
+    <select id="status" name="status">
+        <option value="">Select Status</option>
+        <option value="Yes" {{ request('status') == 'Yes' ? 'selected' : '' }}>Active</option>
+        <option value="No" {{ request('status') == 'No' ? 'selected' : '' }}>Inactive</option>
+    </select>
+    <br><br>
+
+    <input type="submit" value="Search">
+</form>
+
 
 <table>
     <thead>

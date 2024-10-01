@@ -1,8 +1,10 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
+use App\Http\Controllers\BookController;
 
 
 /*
@@ -24,8 +26,12 @@ Route::get('/', function () {
 // });
 
 //Students data
-Route::get('/students',[StudentController::class,'index'] );
+Route::get('/students',[StudentController::class,'index'] )->name('students.index');
 
 //Teachers Data
 
 Route::get('/teachers',[TeacherController::class,'index']);
+
+//Books Data
+
+Route::get('/books',[BookController::class,'index']);
